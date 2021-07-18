@@ -18,6 +18,9 @@ export default function Links() {
       <li>
         <Link to="/about?name=miiin_sseong">About?name=miiin_sseong</Link>
       </li>
+      <li>
+        <Link to="/Login">Login</Link>
+      </li>
     </ul>
   );
 }
