@@ -1,0 +1,22 @@
+.app {
+  height: 100vh;
+
+  .section {
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-color: lightsalmon;
+    position: relative;
+    top: 70px;
+    scroll-behavior: smooth; //부드럽게 올려주기
+    scroll-snap-type: y mandatory;
+    scrollbar-width: none; //for firefox
+    &::-webkit-scrollbar {
+      display: none; //스크롤 없애주기
+    }
+
+    > * {
+      height: calc(100vh - 70px);
+      scroll-snap-align: start; // 조금만 스크롤하면 내려가는 명령어
+    }
+  }
+}
