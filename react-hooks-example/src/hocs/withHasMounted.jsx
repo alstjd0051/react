@@ -1,20 +1,21 @@
-import React from "react";
+import React from 'react';
 
 export default function withHasMounted(Component) {
-  class NewComponent extends React.Component {
-    state = {
-      hasMounted: false,
-    };
-    render() {
-      const { hasMounted } = this.state;
-      return <Component {...this.props} hasMounted={hasMounted} />;
-    }
-    componentDidMount() {
-      this.setState({ hasMounted: true });
-    }
-  }
+    class NewComponent extends React.Component {
+        state = {
+            hasMounted: false,
+        };
 
-  NewComponent.displayNmae = `withHasMounted(${Component.name})`;
+        render() {
+            const { hasMounted } = this.state;
+            return <Component {...this.props} hasMounted={hasMounted} />;
+        }
+        componentDidMount() {
+            this.setState({ hasMounted: true });
+        }
+    }
 
-  return NewComponent;
+    NewComponent.displayName = `withHasMounted(${Component.name})`;
+
+    return NewComponent;
 }

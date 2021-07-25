@@ -1,16 +1,16 @@
+import React from "react";
+import { useSelector } from "react-redux";
+import { Redirect } from "react-router";
+import ListContainer from "../containers/ListContainer";
+import { RootState } from "../redux/modules/rootReducer";
 
-import React from 'react';
-import { Redirect } from 'react-router-dom';
+export default function Home() {
+  const token = useSelector<RootState, string | null>(
+    (state) => state.auth.token
+  );
 
-import useToken from '../hooks/useToken';
-import ListContainer from '../containers/ListContainer';
-
-const Home: React.FC = () => {
-  const token = useToken();
-  if (token === null) {
-    return <Redirect to="/signin" />;
+  if(token === null) {
+    return <Redirect to="/signin" />
   }
-  return <ListContainer />;
-};
-
-export default Home;
+  return <ListContainer />
+}

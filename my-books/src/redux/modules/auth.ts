@@ -6,7 +6,6 @@ import { push } from 'connected-react-router';
 import { LoginReqType } from '../../types';
 import { getTokenFromState } from '../utils';
 import { success as booksSuccess } from './books';
-import UserService from '../../services/UserService';
 import TokenService from '../../services/TokenService';
 
 export interface AuthState {
@@ -93,12 +92,11 @@ function* loginSaga(action: LoginSagaAction) {
 
 function* logoutSaga() {
   try {
-    yield put(booksSuccess(null));
     yield put(pending());
-    const token: string = yield select(getTokenFromState);
+    const token: string = yield select((state) => state.auth.token)
     yield call(UserService.logout, token);
+    TokenService.set(token);
   } catch (error) {
-    // console.log(error);
   } finally {
     TokenService.remove();
     yield put(success(null));
