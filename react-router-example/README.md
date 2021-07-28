@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# React 라우팅
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 라이브러리 설치
 
-## Available Scripts
+```
 
-In the project directory, you can run:
+-   npx create-react-app react-router-example
+-   npm i react-router-dom
 
-### `npm start`
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+-   특정 경로에서 보여줄 컴포넌트를 준비
+    -   About.jsx
+    -   Home.jsx
+    -   Profile.jsx
 
-### `npm test`
+exact 프롭스 설정하면 컴포넌트가 겹치지않고 따로나온다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## URLSearchParams
 
-### `npm run build`
+-   단점
+    1. 메서드를 기억하고 써야한다.
+    2. 브라우저 내장객체이기때문에 브라우저가 지원안되는것들도 있다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+*   단점 극복법
+    -   npm i query-string 라이브러리 사용
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Switch
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-   여러 Route중 순서대로 먼저 맞는 하나만 보여준다.
+-   exact를 뺄 수 있는 로직을 만들 수 있다.
+-   가장 마지막에 어디 path에도 맞지 않으면 보여지는 컴포넌트를 설정해서 "Not Found"페이지를 만들 수 있다.
 
-### `npm run eject`
+# Link
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+-   a태그와 같은 것
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# NavLink
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+-   import {NavLink} from 'react-router-dom';
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*   activeClassName, activeStyle 처럼 active한 상태에 대한 스타일 지정이 가능
+*   Route의 path처럼 동작하기 떄문에 exact가 있다.
